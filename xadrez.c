@@ -5,28 +5,47 @@
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    // definição de variável
+    char direction[10];
+    char direction2[10];
+    char direction3[10];
+    int bispo = 1;
+    int torre = 1;
+    int rainha = 1;
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    // escolhendo a direção do bispo
+    printf("Para qual direção na diagonal você quer ir com o Bispo?\n");
+    printf("Digite a direção: \n");
+    scanf("%s", direction);
+   
+    // executando o movimento
+    while(bispo <= 5){
+        printf("Bispo diagonal %s\n", direction);
+        bispo ++;
+    }
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    // escolhendo a direção da torre
+    printf("\nPara qual direção você quer ir com a torre?\n");
+    scanf("%s", direction2);
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // executando o movimento
+    do{
+        printf("Torre %s\n", direction2);
+        torre ++;
+    } while(torre <= 5);
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    // escolhendo a direção da rainha
+    printf("Agora, para qual direção a rainha deve ir?\n");
+    scanf("%s", direction3);
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // executando o movimento
+    for (rainha = 1; rainha <=8; rainha++)
+    {
+        printf("Rainha %s\n", direction3);
+    }
+    
+
 
     return 0;
 }

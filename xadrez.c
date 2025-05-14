@@ -10,9 +10,11 @@ int main() {
     char direction[10];
     char direction2[10];
     char direction3[10];
+    char direction4[10];
     int bispo = 1;
     int torre = 1;
     int rainha = 1;
+    int cavalo = 1;
 
     // escolhendo a direção do bispo
     printf("Para qual direção na diagonal você quer ir com o Bispo?\n");
@@ -44,6 +46,19 @@ int main() {
     {
         printf("Rainha %s\n", direction3);
     }
+
+    // adicionando a função do cavalo
+    printf("Para qual direção você quer ir com o Cavalo?\n");
+    printf("Digite a direção: \n");
+    scanf("%s", direction4);
+
+    printf("Cavalo Cima \nCavalo Cima \n");
+
+    for (cavalo = 1; cavalo <=2; cavalo++)
+    {
+        printf("Cavalo %s\n", direction4);
+    }
+
     
 
 

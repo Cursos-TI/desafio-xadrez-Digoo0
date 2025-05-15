@@ -1,66 +1,70 @@
 #include <stdio.h>
+#include <string.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Função recursiva para movimentação da Torre
+void moverTorre(char direcao[], int casas) {
+    if (casas == 0) return;
+    printf("Torre %s\n", direcao);
+    moverTorre(direcao, casas - 1);
+}
+
+// Função recursiva para movimentação da Rainha
+void moverRainha(char direcao[], int casas) {
+    if (casas == 0) return;
+    printf("Rainha %s\n", direcao);
+    moverRainha(direcao, casas - 1);
+}
+
+// Função recursiva + loops aninhados para o Bispo
+void moverBispo(char direcao[], int vertical, int horizontal) {
+    if (vertical == 0) return;
+    for (int i = 0; i < horizontal; i++) {
+        printf("Bispo diagonal %s\n", direcao);
+    }
+    moverBispo(direcao, vertical - 1, horizontal);
+}
+
+// Função com loops complexos para o Cavalo (duas para cima, uma para a direita)
+void moverCavalo() {
+    int movimentos = 2;
+    for (int i = 1; i <= movimentos; i++) {
+        for (int j = 1; j <= 1; j++) {
+            if (i == 2 && j == 1) break; // Exemplo de controle de fluxo
+            printf("Cavalo Cima\n");
+        }
+    }
+
+    for (int k = 1; k <= 1; k++) {
+        if (k % 2 == 0) continue;
+        printf("Cavalo Direita\n");
+    }
+}
 
 int main() {
+    // Direções predefinidas 
+    char direcaoBispo[] = "diagonal-direita-cima";
+    char direcaoTorre[] = "cima";
+    char direcaoRainha[] = "esquerda";
+    int casasTorre = 5;
+    int casasRainha = 8;
+    int verticalBispo = 3;
+    int horizontalBispo = 2;
 
-    // definição de variável
-    char direction[10];
-    char direction2[10];
-    char direction3[10];
-    char direction4[10];
-    int bispo = 1;
-    int torre = 1;
-    int rainha = 1;
-    int cavalo = 1;
+    // Movimento do Bispo
+    printf("\n--- Movimento do Bispo ---\n");
+    moverBispo(direcaoBispo, verticalBispo, horizontalBispo);
 
-    // escolhendo a direção do bispo
-    printf("Para qual direção na diagonal você quer ir com o Bispo?\n");
-    printf("Digite a direção: \n");
-    scanf("%s", direction);
-   
-    // executando o movimento
-    while(bispo <= 5){
-        printf("Bispo diagonal %s\n", direction);
-        bispo ++;
-    }
+    // Movimento da Torre
+    printf("\n--- Movimento da Torre ---\n");
+    moverTorre(direcaoTorre, casasTorre);
 
-    // escolhendo a direção da torre
-    printf("\nPara qual direção você quer ir com a torre?\n");
-    scanf("%s", direction2);
+    // Movimento da Rainha
+    printf("\n--- Movimento da Rainha ---\n");
+    moverRainha(direcaoRainha, casasRainha);
 
-    // executando o movimento
-    do{
-        printf("Torre %s\n", direction2);
-        torre ++;
-    } while(torre <= 5);
-
-    // escolhendo a direção da rainha
-    printf("Agora, para qual direção a rainha deve ir?\n");
-    scanf("%s", direction3);
-
-    // executando o movimento
-    for (rainha = 1; rainha <=8; rainha++)
-    {
-        printf("Rainha %s\n", direction3);
-    }
-
-    // adicionando a função do cavalo
-    printf("Para qual direção você quer ir com o Cavalo?\n");
-    printf("Digite a direção: \n");
-    scanf("%s", direction4);
-
-    printf("Cavalo Cima \nCavalo Cima \n");
-
-    for (cavalo = 1; cavalo <=2; cavalo++)
-    {
-        printf("Cavalo %s\n", direction4);
-    }
-
-    
-
+    // Movimento do Cavalo
+    printf("\n--- Movimento do Cavalo ---\n");
+    moverCavalo();
 
     return 0;
 }
